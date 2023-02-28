@@ -20,15 +20,9 @@ Authors: *Zikang Yuan*, *Fengtian Lang* and [*Xin Yang*](https://scholar.google.
 </div>
 
 **New Features:**
-1. The proposed **Sweep Reconstruction** module splits the original sweep packet into continuous point cloud data streams, and then re-packages point cloud data streams in a multiplexing way to obtain sweeps with higher frequency, which is **illustrated by the figure as follow**:
-<div align="center">
-<img src="doc/sweep_reconstruction.png" width=99% />
-</div>
-
-2. **Sweep Reconstruction** can effectively reduce the time interval for each IMU pre-integration, reducing the IMU pre-integration error and enabling the usage of BA based LiDAR-inertial optimization.
-3. Following [CT-ICP](https://github.com/jedeschaud/ct_icp), **SR-LIO** represents the state of two moments in each sweep: 1) at the beginning time of a sweep, and 2) at the end time of the sweep.
-4. **SR-LIO** proposes **Multi-Segment LIO Optimization** for equally optimize all state variables during the period of a reconstructed sweep.
-5. All details about the Jacobian matrixes are available in the appendix of [our article](https://arxiv.org/abs/2210.10424).
+1. Following [CT-ICP](https://github.com/jedeschaud/ct_icp), **LIW-OAM** represents the state of two moments in each sweep: 1) at the beginning time of a sweep, and 2) at the end time of the sweep.
+2. Following [SR-LIO](https://arxiv.org/abs/2210.10424), **LIW-OAM** uses BA-based joint optimization framework, which is different from most EKF based systems.
+3. **LIW-OAM** retains [SR-LIO](https://arxiv.org/abs/2210.10424)'s sweep reconstruction module, which can be performed by adjust the parameter "sweep_cut_num". However, we recommend that users do not use the sweep reconstruction function, because **LIW-OAM** can achieve higher pose estimation accuracy in real time without the requirement of sweep reconstruction.
 
 ## Installation
 
@@ -56,14 +50,14 @@ Authors: *Zikang Yuan*, *Fengtian Lang* and [*Xin Yang*](https://scholar.google.
 ### 2. Create ROS workspace
 
 ```bash
-mkdir -p ~/SR-LIO/src
-cd SR-LIO/src
+mkdir -p ~/LIW-OAM/src
+cd LIW-OAM/src
 ```
 
 ### 3. Clone the directory and build
 
 ```bash
-git clone https://github.com/ZikangYuan/sr_lio.git
+git clone https://github.com/ZikangYuan/liw_oam.git
 cd ..
 catkin_make
 ```
@@ -71,17 +65,18 @@ catkin_make
 
 Noted:
 
-A. Except fot the external parameters between IMU and LiDAR, and the value of gravitational acceleration, **the parameter configurations used in different datasets are exactly the same** to demonstrate the stability and robustness of the SR-LIO.
+A. Except fot the external parameters between IMU and LiDAR, and the value of gravitational acceleration, **the parameter configurations used in different datasets are exactly the same** to demonstrate the stability and robustness of the **LIW-OAM**.
 
 B. Please make sure the LiDAR point clouds have the "ring" channel information.
 
 C. The warning message "Failed to find match for field 'time'." doesn't matter. It can be ignored.
 
-D. **Please create a folder named "output" before running.** When SR-LIO is running, the estimated pose is recorded in real time in the **pose.txt** located in the **output folder**.
+D. **Please create a folder named "output" before running.** When [SR-LIO](https://arxiv.org/abs/2210.10424) is running, the estimated pose is recorded in real time in the **pose.txt** located in the **output folder**.
 
-E. If you want to get some visualization of the split and recombine, please set the **debug_output** parameter in the launch file to 1 (true). After that, you can get some .pcd files in **"output/cloud_frame"** and **"output/cut_sweep"** folders.
+F. If you want to get some visualization of the split and recombine, please set the **debug_output** parameter in the launch file to 1 (true). After that, you can get some .pcd files in **"output/cloud_frame"** and **"output/cut_sweep"** folders.
 
 F. As the groundtruth acquisition of some datasets (*UTBM* and *ULHK*) are extremely complicated, in order to facilitate evaluation, **we store the pose ground truth of the three datasets used by us as [TUM](https://vision.in.tum.de/data/datasets/rgbd-dataset) format. Please down load from [Google drive](https://drive.google.com/drive/folders/1WnvzUzP_s70p4myPf5fsP1Jtr_62PnL1)**.
+
 
 ###  1. Run on [*NCLT*](http://robots.engin.umich.edu/nclt/)
 

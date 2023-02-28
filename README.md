@@ -73,14 +73,14 @@ C. The warning message "Failed to find match for field 'time'." doesn't matter. 
 
 D. **Please create a folder named "output" before running.** When [SR-LIO](https://arxiv.org/abs/2210.10424) is running, the estimated pose is recorded in real time in the **pose.txt** located in the **output folder**.
 
-F. If you want to get some visualization of the split and recombine, please set the **debug_output** parameter in the launch file to 1 (true). After that, you can get some .pcd files in **"output/cloud_frame"** and **"output/cut_sweep"** folders.
+E. If you want to get some visualization of the split and recombine, please set the **debug_output** parameter in the launch file to 1 (true). After that, you can get some .pcd files in **"output/cloud_frame"** and **"output/cut_sweep"** folders.
 
-F. As the groundtruth acquisition of some datasets (*UTBM* and *ULHK*) are extremely complicated, in order to facilitate evaluation, **we store the pose ground truth of the three datasets used by us as [TUM](https://vision.in.tum.de/data/datasets/rgbd-dataset) format. Please down load from [Google drive](https://drive.google.com/drive/folders/1WnvzUzP_s70p4myPf5fsP1Jtr_62PnL1)**.
+F. In order to facilitate evaluation, **we store the pose ground truth of the three datasets used by us as [TUM](https://vision.in.tum.de/data/datasets/rgbd-dataset) format. Please down load from [Google drive](https://drive.google.com/drive/folders/1WnvzUzP_s70p4myPf5fsP1Jtr_62PnL1)**.
 
 
 ###  1. Run on [*NCLT*](http://robots.engin.umich.edu/nclt/)
 
-The time for finishing a sweep by the LiDAR of *NCLT* is not 100ms, but 130~140ms (around 7 Hz). Therefore, we need to package the data stream of the NCLT dataset as 7 Hz sweep packages. The **nclt_to_rosbag.py** in the **"tools"** folder can be used to package 7 Hz sweeps and linearly interpolated 100 Hz IMU data into a rosbag file:
+The time for finishing a sweep by the LiDAR of *NCLT* is not 100ms, but 130~140ms (around 7 Hz). **Different from [SR-LIO](https://arxiv.org/abs/2210.10424), we package the data stream of the *NCLT* dataset as 10 Hz sweep packages. ** The **nclt_to_rosbag_10Hz.py** in the **"tools"** folder can be used to package 10 Hz sweeps and linearly interpolated 100 Hz IMU data into a rosbag file:
 
 ```bash
 python3 nclt_to_rosbag.py PATH_OF_NVLT_SEQUENCE_FOLDER PATH_OF_OUTPUT_BAG

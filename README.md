@@ -106,7 +106,7 @@ rosbag play SEQUENCE_NAME.bag --clock -d 1.0 -r 1.0
 
 ### 2. Run on [*KAIST*](https://sites.google.com/view/complex-urban-dataset)
 
-For point clouds, we utilize the data from both two 3D LiDARs of *KAIST*. Users can package the rosbag according to the code XXX. The partial test sequences of *KAIST* used by us can also be downloaded from [Google drive](https://drive.google.com/drive/folders/1upQuR9cWoawM6MuPYxSpPQPlRLK7sDWU). 
+For point clouds, we utilize the data from both two 3D LiDARs of *KAIST*. Users can package the rosbag according to the tool [kaist2bag](https://github.com/ZikangYuan/kaist2bag). The partial test sequences of *KAIST* used by us can also be downloaded from [Google drive](https://drive.google.com/drive/folders/1upQuR9cWoawM6MuPYxSpPQPlRLK7sDWU). 
 
 Please go to the workspace of LIW-OAM and type:
 

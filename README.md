@@ -16,7 +16,7 @@ Authors: *Zikang Yuan*, *Fengtian Lang* and [*Xin Yang*](https://scholar.google.
 
 **Pipeline:**
 <div align="center">
-<img src="doc/framework-sr_lio.png" width=99% />
+<img src="doc/framework.png" width=99% />
 </div>
 
 **New Features:**

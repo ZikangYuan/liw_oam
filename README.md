@@ -75,7 +75,7 @@ B. Please make sure the LiDAR point clouds have the "ring" channel information.
 
 C. The warning message "Failed to find match for field 'time'." doesn't matter. It can be ignored.
 
-D. **Please create a folder named "output" before running.** When [SR-LIO](https://arxiv.org/abs/2210.10424) is running, the estimated pose is recorded in real time in the **pose.txt** located in the **output folder**.
+D. **Please create a folder named "output" before running.** When **LIW-OAM** is running, the estimated pose is recorded in real time in the **pose.txt** located in the **output folder**.
 
 E. If you want to get some visualization of the split and recombine, please set the **debug_output** parameter in the launch file to 1 (true). After that, you can get some .pcd files in **"output/cloud_frame"** and **"output/cut_sweep"** folders.
 
@@ -106,7 +106,7 @@ rosbag play SEQUENCE_NAME.bag --clock -d 1.0 -r 1.0
 
 ### 2. Run on [*KAIST*](https://sites.google.com/view/complex-urban-dataset)
 
-The test sequences of *KAIST* used by us can be downloaded from [Google drive](https://drive.google.com/drive/folders/1upQuR9cWoawM6MuPYxSpPQPlRLK7sDWU)
+For point clouds, we utilize the data from both two 3D LiDARs of *KAIST*. Users can package the rosbag according to the code XXX. The partial test sequences of *KAIST* used by us can also be downloaded from [Google drive](https://drive.google.com/drive/folders/1upQuR9cWoawM6MuPYxSpPQPlRLK7sDWU). 
 
 Please go to the workspace of LIW-OAM and type:
 

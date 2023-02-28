@@ -4,6 +4,10 @@
 
 ## Related Work
 
+LIW-OAM: Lidar-Inertial-Wheel Odometry and Mapping
+
+Authors: *Zikang Yuan*, *Fengtian Lang*, *TianleXu* and [*Xin Yang*](https://scholar.google.com/citations?user=lsz8OOYAAAAJ&hl=zh-CN)
+
 [SR-LIO: LiDAR-Inertial Odometry with Sweep Reconstruction](https://arxiv.org/abs/2210.10424)
 
 Authors: *Zikang Yuan*, *Fengtian Lang* and [*Xin Yang*](https://scholar.google.com/citations?user=lsz8OOYAAAAJ&hl=zh-CN)
@@ -102,7 +106,9 @@ rosbag play SEQUENCE_NAME.bag --clock -d 1.0 -r 1.0
 
 ### 2. Run on [*KAIST*](https://sites.google.com/view/complex-urban-dataset)
 
-Before evaluating on *KAIST* dataset, a dependency needs to be installed. If your OS are Ubuntu 16.04, please type:
+The test sequences of *KAIST* used by us can be downloaded from [Google drive](https://drive.google.com/drive/folders/1upQuR9cWoawM6MuPYxSpPQPlRLK7sDWU)
+
+Please go to the workspace of LIW-OAM and type:
 
 ```bash
 sourcr devel/setup.bash
@@ -112,49 +118,18 @@ roslaunch liw_oam liw_kaist.launch
 Then open the terminal in the path of the bag file, and type:
 
 ```bash
-rosbag play SEQUENCE_NAME.bag --clock -d 1.0 -r 0.2 
+rosbag play SEQUENCE_NAME.bag --clock -d 1.0 -r 1.0
 ```
-
-### 3. Run on [*ULHK*](https://github.com/weisongwen/UrbanLoco)
-
-For sequence *HK-Data-2019-01-17* and *HK-Data-2019-03-17*, the imu data does not include the gravity acceleration component, and the topic of LiDAR point cloud data is */velodyne_points_0*. For other sequences of *ULHK* used by us, the imu data includes the gravity acceleration component, and the topic of LiDAR point cloud data is */velodyne_points*. Therefore, we provide two launch files for the *ULHK* dataset.
-
-If you test SR-LIO on *HK-Data-2019-01-17* or *HK-Data-2019-03-17*, please type:
-
-```bash
-sourcr devel/setup.bash
-roslaunch sr_lio lio_ulhk1.launch
-```
-
-If you test SR-LIO on *HK-Data-2019-03-16-1*, *HK-Data-2019-04-26-1* or *HK-Data-2019-04-26-2*, please type:
-
-```bash
-sourcr devel/setup.bash
-roslaunch sr_lio lio_ulhk2.launch
-```
-
-Then open the terminal in the path of the bag file, and type:
-
-```bash
-rosbag play SEQUENCE_NAME.bag --clock -d 1.0 -r 0.2 
-```
-
-### 4. Adjustment of "-r" when play rosbag
-
-**-r** is used to control the rosbag playback speed. For example, when we set **-r 0.2**, the playback speed of this operation is 1/5 of the original data acquisition rate. Theoretically, when the input LiDAR sweeps are reconstituted from 10 Hz to 30 Hz, we need to complete the processing of a sweep within (1000/30)ms. However, our system could not achieve such excellent computational efficiency on existing hardware platforms. By slowing down the playback of rosbag packets, we can give our system more time to process each sweep.
-
-The most significant parameters affecting the efficiency of our system are the registration times of ICP and the iteration times of each registration. Therefore, for each sequence, we test the time consumption with different number of ICP point cloud registration and different number of iteration solutions for each registration. For each test, we also record the pose accuracy (i.e., ATE) to explore how many registration and iterations are need to reach the best pose accuracy. The results are arranged in the following table. **Please refer to the Table VII of [our article](https://arxiv.org/abs/2210.10424) to select the "-r" parameter.**
 
 ## Citation
 
 If you use our work in your research project, please consider citing:
 
 ```
-@article{yuan2022sr,
-  title={SR-LIO: LiDAR-Inertial Odometry with Sweep Reconstruction},
-  author={Yuan, Zikang and Lang, Fengtian and Yang, Xin},
-  journal={arXiv preprint arXiv:2210.10424},
-  year={2022}
+@article{yuan2023liw,
+  title={LIW-OAM: Lidar-Inertial-Wheel Odometry and Mapping},
+  author={Yuan, Zikang and Lang, Fengtian and Xu, Tianle and Yang, Xin},
+  year={2023}
 }
 ```
 

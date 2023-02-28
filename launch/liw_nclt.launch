@@ -1,0 +1,16 @@
+<launch>
+  <!-- Launch file for velodyne16 VLP-16 LiDAR -->
+
+    <arg name="rviz" default="true" />
+
+    <rosparam command="load" file="$(find liw-oam)/config/nclt.yaml" />
+
+    <param name="debug_output" type="bool" value="0"/>
+    <param name="output_path" type="string" value="$(find liw-oam)/output"/>
+    <node pkg="liw-oam" type="lio_optimization" name="lio_optimization" output="screen" /> 
+
+    <group if="$(arg rviz)">
+    <node launch-prefix="nice" pkg="rviz" type="rviz" name="rviz" args="-d $(find liw-oam)/rviz_cfg/visualization.rviz" />
+    </group>
+
+</launch>

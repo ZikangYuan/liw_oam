@@ -6,7 +6,7 @@
 
 LIW-OAM: Lidar-Inertial-Wheel Odometry and Mapping
 
-Authors: *Zikang Yuan*, *Fengtian Lang*, *TianleXu* and [*Xin Yang*](https://scholar.google.com/citations?user=lsz8OOYAAAAJ&hl=zh-CN)
+Authors: *Zikang Yuan*, *Fengtian Lang*, *Tianle Xu* and [*Xin Yang*](https://scholar.google.com/citations?user=lsz8OOYAAAAJ&hl=zh-CN)
 
 [SR-LIO: LiDAR-Inertial Odometry with Sweep Reconstruction](https://arxiv.org/abs/2210.10424)
 

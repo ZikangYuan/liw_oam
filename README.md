@@ -8,7 +8,7 @@
 
 Authors: *Zikang Yuan*, *Fengtian Lang* and [*Xin Yang*](https://scholar.google.com/citations?user=lsz8OOYAAAAJ&hl=zh-CN)
 
-## Demo Figure (2022-10-17 Update)
+## Demo Figure (2023-02-28 Update)
 
 <div align="center">
 <img src="doc/visualization.png" width=99% />

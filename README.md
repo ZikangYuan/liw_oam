@@ -83,42 +83,30 @@ F. In order to facilitate evaluation, **we store the pose ground truth of the th
 The time for finishing a sweep by the LiDAR of *NCLT* is not 100ms, but 130~140ms (around 7 Hz). **Different from [SR-LIO](https://arxiv.org/abs/2210.10424), we package the data stream of the *NCLT* dataset as 10 Hz sweep packages.** The **nclt_to_rosbag_10Hz.py** in the **"tools"** folder can be used to package 10 Hz sweeps and linearly interpolated 100 Hz IMU data into a rosbag file:
 
 ```bash
-python3 nclt_to_rosbag.py PATH_OF_NVLT_SEQUENCE_FOLDER PATH_OF_OUTPUT_BAG
+python3 nclt_to_rosbag_10Hz.py PATH_OF_NVLT_SEQUENCE_FOLDER PATH_OF_OUTPUT_BAG
 ```
 
-Then, please go to the workspace of SR-LIO and type:
+Then, please go to the workspace of LIW-OAM and type:
 
 ```bash
-cd SR-LIO
+cd LIW-OAM
 sourcr devel/setup.bash
-roslaunch sr_lio lio_nclt.launch
+roslaunch liw_oam liw_nclt.launch
 ```
 
 Then open the terminal in the path of the bag file, and type:
 
 ```bash
-rosbag play SEQUENCE_NAME.bag --clock -d 1.0 -r 0.2 
+rosbag play SEQUENCE_NAME.bag --clock -d 1.0 -r 1.0
 ```
 
-### 2. Run on [*UTBM*](https://epan-utbm.github.io/utbm_robocar_dataset/#Downloads)
+### 2. Run on [*KAIST*](https://sites.google.com/view/complex-urban-dataset)
 
-Before evaluating on *UTBM* dataset, a dependency needs to be installed. If your OS are Ubuntu 16.04, please type:
-
-```bash
-sudo apt-get install ros-kinetic-velodyne 
-```
-
-If your OS are Ubuntu 18.04, please type:
-
-```bash
-sudo apt-get install ros-melodic-velodyne 
-```
-
-Then open the terminal in the path of SR-LIO, and type:
+Before evaluating on *KAIST* dataset, a dependency needs to be installed. If your OS are Ubuntu 16.04, please type:
 
 ```bash
 sourcr devel/setup.bash
-roslaunch sr_lio lio_utbm.launch
+roslaunch liw_oam liw_kaist.launch
 ```
 
 Then open the terminal in the path of the bag file, and type:

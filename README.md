@@ -4,7 +4,7 @@
 
 ## Related Work
 
-LIW-OAM: Lidar-Inertial-Wheel Odometry and Mapping
+[LIW-OAM: Lidar-Inertial-Wheel Odometry and Mapping](https://arxiv.org/abs/2302.14298)
 
 Authors: *Zikang Yuan*, *Fengtian Lang*, *Tianle Xu* and [*Xin Yang*](https://scholar.google.com/citations?user=lsz8OOYAAAAJ&hl=zh-CN)
 
@@ -129,6 +129,7 @@ If you use our work in your research project, please consider citing:
 @article{yuan2023liw,
   title={LIW-OAM: Lidar-Inertial-Wheel Odometry and Mapping},
   author={Yuan, Zikang and Lang, Fengtian and Xu, Tianle and Yang, Xin},
+  journal={arXiv preprint arXiv:2302.14298},
   year={2023}
 }
 ```

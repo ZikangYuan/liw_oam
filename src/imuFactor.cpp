@@ -160,8 +160,8 @@ bool CTImuFactor::Evaluate(double const *const *parameters, double *residuals, d
             jacobian_velocity_bias_last.block<3, 3>(O_V, O_BA - O_V - 3) = - dv_dba;
             jacobian_velocity_bias_last.block<3, 3>(O_V, O_BG - O_V - 3) = - dv_dbg;
 
-            if(odom_enble == true)
-                jacobian_velocity_bias_last.block<3, 3>(O_W, O_BG - O_V - 3) = - dw_dbg;
+            //if(odom_enble == true)
+            //    jacobian_velocity_bias_last.block<3, 3>(O_W, O_BG - O_V - 3) = - dw_dbg;
 
             jacobian_velocity_bias_last.block<3, 3>(O_BA, O_BA - O_V - 3) = - Eigen::Matrix3d::Identity();
 

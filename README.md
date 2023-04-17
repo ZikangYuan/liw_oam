@@ -113,7 +113,7 @@ Chinese users can download the test sequences of *KAIST* form [baidu yun](https:
 Please go to the workspace of LIW-OAM and type:
 
 ```bash
-sourcr devel/setup.bash
+source devel/setup.bash
 roslaunch liw_oam liw_kaist.launch
 ```
 

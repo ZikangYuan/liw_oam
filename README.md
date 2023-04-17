@@ -94,7 +94,7 @@ Then, please go to the workspace of LIW-OAM and type:
 
 ```bash
 cd LIW-OAM
-sourcr devel/setup.bash
+source devel/setup.bash
 roslaunch liw_oam liw_nclt.launch
 ```
 

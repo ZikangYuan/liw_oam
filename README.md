@@ -110,7 +110,7 @@ For point clouds, we utilize the data from both two 3D LiDARs of *KAIST*. Users 
 
 Chinese users can download the test sequences of *KAIST* form [baidu yun](https://pan.baidu.com/s/1vrat2HdTf6NBrjw_kGCZNw), while the password is **s4bw**.
 
-Please go to the workspace of LIW-OAM and type:
+Please go to the workspace of **LIW-OAM** and type:
 
 ```bash
 source devel/setup.bash

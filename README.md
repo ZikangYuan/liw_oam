@@ -4,7 +4,7 @@
 
 ## Related Work
 
-[LIW-OAM: Lidar-Inertial-Wheel Odometry and Mapping](https://arxiv.org/abs/2302.14298)
+[LIWO: LiDAR-Inertial-Wheel Odometry](https://ieeexplore.ieee.org/abstract/document/10342258)
 
 Authors: [*Zikang Yuan*](https://scholar.google.com/citations?hl=zh-CN&user=acxdM9gAAAAJ), [*Fengtian Lang*](https://scholar.google.com/citations?hl=zh-CN&user=zwgGSkEAAAAJ&view_op=list_works&gmla=ABEO0Yrl4-YPuowyntSYyCW760yxM5-IWkF8FGV4t9bs9qz1oWrqnlHmPdbt7LMcMDc04kl2puqRR4FaZvaCUONsX7MQhuAC6a--VS2pTsuwj-CyKgWp3iWDP2TS0I__Zui5da4), *Tianle Xu* and [*Xin Yang*](https://scholar.google.com/citations?user=lsz8OOYAAAAJ&hl=zh-CN)
 
@@ -128,11 +128,13 @@ rosbag play SEQUENCE_NAME.bag --clock -d 1.0 -r 1.0
 If you use our work in your research project, please consider citing:
 
 ```
-@article{yuan2023liw,
-  title={LIW-OAM: Lidar-Inertial-Wheel Odometry and Mapping},
+@inproceedings{yuan2023liwo,
+  title={LIWO: LiDAR-Inertial-Wheel Odometry},
   author={Yuan, Zikang and Lang, Fengtian and Xu, Tianle and Yang, Xin},
-  journal={arXiv preprint arXiv:2302.14298},
-  year={2023}
+  booktitle={2023 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
+  pages={1481--1488},
+  year={2023},
+  organization={IEEE}
 }
 ```
 

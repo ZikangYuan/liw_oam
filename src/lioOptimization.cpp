@@ -1320,7 +1320,8 @@ void lioOptimization::run()
                 ry = imu_msg->angular_velocity.y;
                 rz = imu_msg->angular_velocity.z;
                 speed = (vLeft + vRight) * 0.5;
-                imu_pro->process(dt, Eigen::Vector3d(dx, dy, dz), Eigen::Vector3d(rx, ry, rz), Eigen::Vector3d(speed, 0, 0), time_imu);
+		Eigen::Vector3d wheel_velocity = R_imu_odom * Eigen::Vector3d(speed, 0, 0);
+                imu_pro->process(dt, Eigen::Vector3d(dx, dy, dz), Eigen::Vector3d(rx, ry, rz), wheel_velocity, time_imu);
 
                 if (options.optimize_options.solver == LIO && !initial_flag)
                 {
@@ -1345,7 +1346,8 @@ void lioOptimization::run()
                 ry = w1 * ry + w2 * imu_msg->angular_velocity.y;
                 rz = w1 * rz + w2 * imu_msg->angular_velocity.z;
                 speed = w1 * speed + w2 * (vLeft + vRight) * 0.5;
-                imu_pro->process(dt_1, Eigen::Vector3d(dx, dy, dz), Eigen::Vector3d(rx, ry, rz), Eigen::Vector3d(speed, 0, 0), time_frame);
+		Eigen::Vector3d wheel_velocity = R_imu_odom * Eigen::Vector3d(speed, 0, 0);
+                imu_pro->process(dt_1, Eigen::Vector3d(dx, dy, dz), Eigen::Vector3d(rx, ry, rz), wheel_velocity, time_frame);
             }
         }
         std::cout <<  " velocity : " << speed << std::endl;
